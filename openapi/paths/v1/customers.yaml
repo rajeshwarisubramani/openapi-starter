@@ -1,19 +1,45 @@
 get:
   tags:
-    - Customers 
+    - Customers
   summary: Get list  all customers
   description: Retrieve a list of all customers.
   operationId: listCustomers
   responses:
-    '200':
+    "200":
       description: A list of customers.
       content:
         application/json:
           schema:
-              $ref: '../../components/schemas/v1/customer_list.yaml'
-    '404':
+            $ref: "../../components/schemas/v1/customer_list.yaml"
+    "404":
       description: Unauthorized access.
       content:
         application/json:
           schema:
-            $ref: '../../components/schemas/Problem.yaml'
+            $ref: "../../components/schemas/Problem.yaml"
+post:
+  tags:
+    - Customers
+  summary: Create a new customer
+  description: Create a new customer with the provided details.
+  operationId: createCustomer
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/v1/customer.yaml"
+  responses:
+    "201":
+      description: Customer created successfully.
+      headers: 
+        Location:
+          description: URL of the newly created customer.
+          schema:
+            type: string
+            format: uri
+            example: "/v1/customers/12cab3d-4f5e-6a7b-8c9d-0e1f2g3h4i5j"
+    "400":
+      description: Bad request due to invalid input.
+    "500":
+      description: Internal server error.
