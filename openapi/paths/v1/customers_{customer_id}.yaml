@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Customer
+  summary: Get customer by ID
+  description: Retrieve a customer by their unique identifier.
+  operationId: getCustomerById
+  parameters:
+    - $ref: ../../components/parameters/customer_id.yaml
+  responses:
+    "200":
+      description: Customer retrieved successfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/v1/customer.yaml
+            description: Customer object containing the customer's details.
+    "400":
+      description: Bad request due to invalid input.
+    "404":
+      description: Customer not found.
+    "500":
+      description: Internal server error.
+      

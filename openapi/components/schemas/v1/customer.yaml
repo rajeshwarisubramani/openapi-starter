@@ -1,0 +1,34 @@
+type: object
+properties: 
+  id:
+    type: string
+    description: Unique identifier for the customer.
+  name:
+    $ref: name.yaml
+    description: Name of the customer.
+  shipToAddress:
+    $ref: address.yaml
+    description: Shipping address of the customer.
+  billToAddress:  
+    $ref: address.yaml
+    description: Billing address of the customer.
+  email:
+    type: string
+    format: email
+    description: Email address of the customer.
+    maxLength: 225
+    minLength: 3
+  phone:  
+    type: string
+    description: Phone number of the customer.
+    maxLength: 15
+    minLength: 7
+  paymentMethods:
+    type: array
+    items: 
+      $ref: payment_method.yaml
+required: 
+  -  name
+  -  shipToAddress  
+  -  billToAddress
+      

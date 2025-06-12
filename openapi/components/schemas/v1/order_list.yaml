@@ -1,0 +1,4 @@
+type: array
+items: 
+  $ref: product.yaml
+description: List of products 

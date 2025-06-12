@@ -55,54 +55,7 @@ get:
     '404':
       description: User not found
       $ref: ../components/responses/Problem.yaml
-put:
-  tags:
-    - User
-  summary: Update user data
-  description: "This operation allows users to update the information in their own profile. The update can only be performed by the logged in user."
-  operationId: updateUser
-  parameters:
-    - name: username
-      in: path
-      description: "The name of the user profile to be **updated**."
-      required: true
-      schema:
-        type: string
-  security:
-    - main_auth:
-        - 'write:users'
-  requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: '../components/schemas/User.yaml'
-      application/xml:
-        schema:
-          $ref: '../components/schemas/User.yaml'
-    description: Updated user object
-    required: true
-  responses:
-    '200':
-      description: Successfully updated the user profile
-      content:
-        application/json:
-          example:
-            status: 200
-            message: OK
-    '400':
-      description: Invalid username supplied
-      $ref: ../components/responses/Problem.yaml
-    '404':
-      description: User not found
-      $ref: ../components/responses/Problem.yaml
-    '405':
-      description: Method not allowed
-      content:
-        application/json:
-          example:
-            status: 405
-            message: Not allowed
-delete:
+
   tags:
     - Admin
   summary: Delete a user
