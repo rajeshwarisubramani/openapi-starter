@@ -1,0 +1,19 @@
+get:
+  tags: 
+    - Products
+  summary: Get list of all products
+  description: Retrieve a list of all products.
+  operationId: listProducts
+  responses:
+    '200':
+      description: A list of products.
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/product_list.yaml'
+    '404':
+      description: Unauthorized access.
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Problem.yaml'

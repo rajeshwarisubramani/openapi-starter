@@ -1,0 +1,27 @@
+type: object
+properties: 
+  prefix:
+    type: string
+    description: name prefix.
+    maxLength: 25
+    minLength: 0
+  firstName:
+    type: string
+    description: Name of the customer.
+    maxLength: 2
+    minLength: 100
+  lastName:
+    type: string
+    description: Last name of the customer.
+    maxLength: 2
+    minLength: 100
+  suffix:
+    type: string
+    description: name suffix.
+    maxLength: 2
+    minLength: 10
+required:
+  - firstName
+  - lastName
+
+    
